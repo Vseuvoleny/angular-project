@@ -1,0 +1,109 @@
+@import "../../../styles/colors.scss";
+
+@keyframes fadeIn {
+  from {
+    z-index: -1;
+    opacity: 0.5;
+    transform: translateY(-100px);
+  }
+
+  to {
+    z-index: 0;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0.4;
+    transform: translateY(-100px);
+  }
+}
+
+.auth {
+  width: 400px;
+  height: 400px;
+  margin: 30px auto 0;
+  background: $form-background;
+
+  &.fadeIn {
+    animation: 500ms linear fadeIn;
+  }
+  &.fadeOut {
+    animation: 500ms linear fadeOut;
+  }
+  &__title {
+    font-weight: bold;
+    color: $dark-black;
+    font-size: 30px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+
+    & .input-box {
+      width: 100%;
+    }
+    & .input-box:first-of-type {
+      margin-top: 12px;
+      // margin-bottom: 8px;
+    }
+    & label {
+      display: block;
+      color: $dark-grey;
+      padding-left: 8px;
+      margin-bottom: 4px;
+    }
+    & .input {
+      padding: 8px 12px;
+      display: block;
+      outline: none;
+      border: 0;
+      background: $input-background;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    & .login-button {
+      width: 33%;
+      align-self: end;
+      margin-top: 10px;
+      background: $light-blue;
+      border: none;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: $white;
+      cursor: pointer;
+
+      &:disabled,
+      &[disabled] {
+        cursor: not-allowed;
+        background-color: $input-background;
+      }
+    }
+    .alert {
+      position: relative;
+      &.alert-danger::after {
+        content: "";
+        position: absolute;
+        background-color: $error-red;
+        height: 5px;
+        width: 400px;
+        border-radius: 0px 0px 5px 5px;
+        top: -8px;
+      }
+
+      &__message {
+        padding-left: 8px;
+        color: $error-red;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<mat-card class="detail" *ngIf="currentVideo$ | async as currentVideo">
+  <picture class="detail__picture"
+    ><img
+      src="{{ currentVideo.snippet.thumbnails.high.url }}"
+      alt="{{ currentVideo.snippet.title }}"
+  /></picture>
+
+  <div class="detail__info">
+    <div class="info">
+      <div class="title-box">
+        <span class="title">{{ currentVideo.snippet.title }} </span>
+        <span class="date">{{
+          currentVideo.snippet.publishedAt | date : "fullDate"
+        }}</span>
+      </div>
+      <div class="description-box">
+        <span class="desc-title">Description:</span>
+        <span class="desc">{{ currentVideo.snippet.description }}</span>
+      </div>
+    </div>
+    <div class="card__icons">
+      <div class="card__icon">
+        <span class="counter">{{ currentVideo.statistics.viewCount }}</span>
+        <mat-icon>remove_red_eye</mat-icon>
+      </div>
+      <div class="card__icon">
+        <span class="counter">{{ currentVideo.statistics.likeCount }}</span>
+        <mat-icon>thumb_up_alt</mat-icon>
+      </div>
+      <div class="card__icon">
+        <span class="counter">{{ currentVideo.statistics.dislikeCount }}</span>
+        <mat-icon>thumb_down_alt</mat-icon>
+      </div>
+      <div class="card__icon">
+        <span class="counter">{{ currentVideo.statistics.commentCount }}</span>
+        <mat-icon> comment</mat-icon>
+      </div>
+    </div>
+  </div>
+</mat-card>

@@ -1,0 +1,18 @@
+@import "../../../styles/colors.scss";
+
+.header {
+  background: $card-background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 20px;
+
+  .box {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    column-gap: 100px;
+    align-items: center;
+  }
+}

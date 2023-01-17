@@ -1,0 +1,22 @@
+@import "../../../../styles/colors.scss";
+
+.search {
+  display: flex;
+  align-items: center;
+
+  &__input {
+    background: $input-light;
+    padding: 10px 12px;
+    outline: none;
+    border: none;
+  }
+
+  &__tune {
+    padding: 4px;
+    background: $light-blue;
+    cursor: pointer;
+    color: $white;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+}

@@ -1,0 +1,16 @@
+@import "../../../../styles/colors.scss";
+
+.card__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row-reverse;
+  .mat-icon {
+    color: $dark-black;
+  }
+
+  .counter {
+    color: $dark-black;
+    margin-left: 4px;
+  }
+}

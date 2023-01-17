@@ -1,0 +1,70 @@
+@import "../../../../styles/colors.scss";
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.7;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0.7;
+    transform: translateY(-10px);
+  }
+}
+
+.sorting {
+  margin-top: 24px;
+  height: 20px;
+  &__container {
+    animation: 500ms linear fadeIn;
+    &.hidden {
+      animation: 500ms linear fadeOut;
+    }
+  }
+  &__title {
+    color: $grey;
+    padding-right: 12px;
+  }
+  &__item {
+    color: $blue-outline;
+    text-decoration: underline;
+    text-decoration-color: $blue-outline;
+    cursor: pointer;
+    transition: all 0.5s linear;
+    & + & {
+      padding-left: 12px;
+    }
+    &.filter {
+      text-decoration: none;
+    }
+    &.active {
+      font-weight: bold;
+    }
+    &.increase {
+      color: $green-outline;
+      text-decoration-color: $green-outline;
+    }
+    &.decrease {
+      color: $yellow-outline;
+      text-decoration-color: $yellow-outline;
+    }
+  }
+  &__input {
+    outline: none;
+    border: none;
+    padding: 2px 0 2px 4px;
+    margin-left: 12px;
+  }
+}

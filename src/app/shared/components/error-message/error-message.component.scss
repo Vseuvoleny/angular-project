@@ -1,0 +1,7 @@
+@import "../../../../styles/colors.scss";
+
+.alert__message {
+  padding-top: 4px;
+  padding-left: 8px;
+  color: $error-red;
+}

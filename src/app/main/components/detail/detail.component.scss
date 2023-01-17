@@ -1,0 +1,73 @@
+@import "../../../../styles/colors.scss";
+
+.detail {
+  background: $card-background;
+  display: flex;
+  padding: 0;
+  box-shadow: 5px 5px 20px rgba(51, 51, 51, 0.25);
+  border-radius: 0px 5px 5px 0px;
+
+  &__picture {
+    flex: 1 0 60%;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px 0px 0px 5px;
+    }
+  }
+
+  &__info {
+    padding: 35px 34px 29px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+      .title {
+        color: $dark-black;
+        font-size: 24px;
+        line-height: 100%;
+        font-weight: 800;
+      }
+      .date {
+        color: $dark-grey;
+        font-size: 13px;
+      }
+    }
+    .description-box {
+      .desc-title {
+        display: block;
+        color: $dark-black;
+      }
+      .desc {
+        color: $dark-grey;
+      }
+    }
+  }
+  .card__icons {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    align-self: center;
+    margin-top: 24px;
+
+    .card__icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row-reverse;
+      column-gap: 4px;
+      .mat-icon {
+        color: $dark-black;
+      }
+
+      .counter {
+        color: $dark-black;
+      }
+    }
+  }
+}

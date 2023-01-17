@@ -1,0 +1,13 @@
+<header class="header">
+  <div class="box">
+    <div class="box__controller">
+      <app-search (toggleEmit)="toggleSorting()"></app-search>
+    </div>
+    <app-user-icon></app-user-icon>
+  </div>
+  <app-sorting-field
+    [isSortHidden]="isSortHidden"
+    [animation]="animation"
+    [currentOption]="currentOption"
+  ></app-sorting-field>
+</header>

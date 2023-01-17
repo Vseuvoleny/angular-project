@@ -1,0 +1,120 @@
+<mat-card class="create-form">
+  <span class="create-form__title">Create new card</span>
+  <form
+    class="create-form__form"
+    [formGroup]="createForm"
+    (ngSubmit)="postForm()"
+  >
+    <div class="input-box">
+      <label for="title">Title</label>
+      <input
+        id="title"
+        class="input"
+        type="text"
+        formControlName="title"
+        autocomplete="off"
+        required
+      />
+      <div
+        *ngIf="
+          createForm.controls.title.invalid && createForm.controls.title.touched
+        "
+        class="alert alert-danger"
+      >
+        <app-error-message
+          *ngIf="createForm.controls.title.errors?.['required']"
+        >
+          Please enter a title
+        </app-error-message>
+        <app-error-message
+          *ngIf="createForm.controls.title.errors?.['maxLength']"
+        >
+          The title is too long
+        </app-error-message>
+        <app-error-message
+          *ngIf="createForm.controls.title.errors?.['minlength']"
+        >
+          The title is too short
+        </app-error-message>
+      </div>
+    </div>
+    <div class="input-box">
+      <label for="description">Discription</label>
+      <input
+        id="description"
+        type="text"
+        class="input"
+        name="description"
+        formControlName="description"
+      />
+      <div
+        *ngIf="
+          createForm.controls.description.invalid &&
+          createForm.controls.description.touched
+        "
+        class="alert alert-danger"
+      >
+        <app-error-message
+          *ngIf="createForm.controls.description.errors?.['maxlength']"
+        >
+          The description is too long
+        </app-error-message>
+      </div>
+    </div>
+    <div class="input-box">
+      <label for="image">Img</label>
+      <input
+        id="image"
+        type="text"
+        class="input"
+        name="image"
+        formControlName="image"
+      />
+      <div
+        *ngIf="
+          createForm.controls.image.invalid && createForm.controls.image.touched
+        "
+        class="alert alert-danger"
+      >
+        <app-error-message
+          *ngIf="createForm.controls.image.errors?.['required']"
+        >
+          Please enter a link to the image
+        </app-error-message>
+        <app-error-message
+          *ngIf="createForm.controls.image.errors?.['pattern']"
+        >
+          The image link is invalid
+        </app-error-message>
+      </div>
+    </div>
+    <div class="input-box">
+      <label for="link">Link</label>
+      <input
+        id="link"
+        type="text"
+        class="input"
+        name="link"
+        formControlName="link"
+      />
+      <div
+        *ngIf="
+          createForm.controls.link.invalid && createForm.controls.link.touched
+        "
+        class="alert alert-danger"
+      >
+        <app-error-message
+          *ngIf="createForm.controls.link.errors?.['required']"
+        >
+          Please enter a link to the video
+        </app-error-message>
+        <app-error-message *ngIf="createForm.controls.link.errors?.['pattern']">
+          The link is invalid
+        </app-error-message>
+      </div>
+    </div>
+    <button class="post-button" role="button" (click)="postForm()">
+      {{ (isFetching$ | async) ? "Loading" : "Create card" }}
+    </button>
+  </form>
+</mat-card>

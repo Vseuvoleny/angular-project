@@ -1,0 +1,77 @@
+<mat-card class="auth" [ngClass]="{ fadeIn: isShowed, fadeOut: !isShowed }">
+  <span class="auth__title">Login</span>
+  <form class="auth__form" [formGroup]="authForm" (ngSubmit)="login()">
+    <div class="input-box">
+      <label for="login">login</label>
+      <input
+        id="login"
+        class="input"
+        type="text"
+        autocomplete="off"
+        name="login"
+        formControlName="login"
+      />
+    </div>
+    <div
+      *ngIf="
+        authForm.controls.login.invalid &&
+        (authForm.controls.login.dirty || authForm.controls.login.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div
+        *ngIf="authForm.controls.login.errors?.['required']"
+        class="alert__message"
+      >
+        Login is required.
+      </div>
+      <div
+        *ngIf="authForm.controls.login.errors?.['email']"
+        class="alert__message"
+      >
+        The login email is invalid
+      </div>
+    </div>
+    <div class="input-box">
+      <label for="password">password</label>
+      <input
+        id="pasword"
+        type="password"
+        class="input"
+        name="password"
+        formControlName="password"
+      />
+    </div>
+    <div
+      *ngIf="
+        authForm.controls.password.invalid &&
+        (authForm.controls.password.dirty || authForm.controls.password.touched)
+      "
+      class="alert alert-danger"
+    >
+      <div class="alert__border"></div>
+      <div
+        *ngIf="authForm.controls.password.errors?.['required']"
+        class="alert__message"
+      >
+        Please enter a password
+      </div>
+      <div
+        *ngIf="authForm.controls.password.errors?.['wrongPassword']"
+        class="alert__message"
+      >
+        Your password isn't strong enough
+      </div>
+    </div>
+    <button
+      class="login-button"
+      role="button"
+      (click)="login()"
+      [disabled]="
+        authForm.controls.password.invalid || authForm.controls.login.invalid
+      "
+    >
+      Login
+    </button>
+  </form>
+</mat-card>

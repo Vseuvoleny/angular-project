@@ -1,0 +1,6 @@
+<main>
+  <div *ngIf="isFetched$ | async">Loading....</div>
+  <div class="card__container" *ngIf="cards$ | async as cards">
+    <app-card *ngFor="let card of cards" [card]="card"></app-card>
+  </div>
+</main>

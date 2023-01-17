@@ -1,0 +1,13 @@
+<div class="search">
+  <app-logo></app-logo>
+  <form class="search__form">
+    <input
+      type="text"
+      class="search__input"
+      placeholder="start typing...."
+      name="video"
+      [formControl]="searchControl"
+    />
+  </form>
+  <mat-icon class="search__tune" (click)="toggleSorting()">tune</mat-icon>
+</div>

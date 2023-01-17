@@ -1,0 +1,43 @@
+<mat-card
+  class="card"
+  *ngIf="card"
+  [ngClass]="{
+    blue: borderColor === 'blue',
+    green: borderColor === 'green',
+    red: borderColor === 'red',
+    yellow: borderColor === 'yellow'
+  }"
+>
+  <div class="card__group">
+    <img
+      mat-card-image
+      class="card__img"
+      src="{{ card.snippet.thumbnails.high.url }}"
+      alt="{{ card.snippet.title }}"
+    />
+    <div class="card__icons">
+      <div class="card__icon">
+        <span class="counter">{{ card.statistics.viewCount }}</span>
+        <mat-icon>remove_red_eye</mat-icon>
+      </div>
+      <div class="card__icon">
+        <span class="counter">{{ card.statistics.likeCount }}</span>
+        <mat-icon>thumb_up_alt</mat-icon>
+      </div>
+      <div class="card__icon">
+        <span class="counter">{{ card.statistics.commentCount }}</span>
+        <mat-icon> comment</mat-icon>
+      </div>
+    </div>
+    <mat-card-title class="card__title">{{
+      card.snippet.title
+    }}</mat-card-title>
+    <button
+      mat-button
+      class="card__button"
+      [routerLink]="'/main/' + card.id.videoId"
+    >
+      More...
+    </button>
+  </div>
+</mat-card>

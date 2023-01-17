@@ -1,0 +1,9 @@
+<app-header
+  (currentOptionEmit)="getOption($event)"
+  (filterEmit)="getFilterValue($event)"
+>
+</app-header>
+<main class="main">
+  <router-outlet></router-outlet>
+</main>
+<!-- <app-main [cards]="videos | filter: filterValue"></app-main> -->

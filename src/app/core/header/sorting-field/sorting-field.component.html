@@ -1,0 +1,31 @@
+<div class="sorting">
+  <div
+    class="sorting__container"
+    *ngIf="!isSortHidden"
+    [ngClass]="{ hidden: animation === 'fadeOut' }"
+  >
+    <span class="sorting__title">Sorting by:</span>
+    <span
+      *ngFor="let option of sortingOptions as options; let i = index"
+      class="sorting__item"
+      [ngClass]="{
+        active: option.active,
+        increase: option.status === 'increase',
+        decrease: option.status === 'decrease'
+      }"
+      (click)="click(i)"
+    >
+      {{ option.title }}
+    </span>
+    <span class="sorting__item filter">
+      by word or sentance
+      <input
+        type="text"
+        class="sorting__input"
+        [ngModel]="inputValue"
+        (ngModelChange)="changeFilter($event)"
+        name="sort_input"
+      />
+    </span>
+  </div>
+</div>

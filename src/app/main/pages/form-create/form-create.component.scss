@@ -1,0 +1,100 @@
+@import "../../../../styles/colors.scss";
+
+@keyframes fadeIn {
+  from {
+    z-index: -1;
+    opacity: 0.5;
+    transform: translateY(-100px);
+  }
+
+  to {
+    z-index: 0;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0.4;
+    transform: translateY(-100px);
+  }
+}
+
+.create-form {
+  padding: 38px 25px 32px;
+  margin: 30px auto 0;
+  background: $form-background;
+  width: 100%;
+  max-width: 432px;
+
+  &.fadeIn {
+    animation: 500ms linear fadeIn;
+  }
+  &.fadeOut {
+    animation: 500ms linear fadeOut;
+  }
+  &__title {
+    font-weight: bold;
+    color: $dark-black;
+    font-size: 30px;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    margin-top: 28px;
+
+    // & .input-box {
+    //   width: 100%;
+    // }
+
+    // & label {
+    //   display: block;
+    //   color: $dark-grey;
+    //   padding-left: 8px;
+    //   margin-bottom: 4px;
+    // }
+    // & .input {
+    //   padding: 8px 12px;
+    //   display: block;
+    //   outline: none;
+    //   border: 0;
+    //   background: $input-background;
+    //   width: 100%;
+    //   box-sizing: border-box;
+    // }
+
+    & .post-button {
+      align-self: end;
+      margin-top: 17px;
+      background: $button-color;
+      border: none;
+      padding: 10px 60px;
+      border-radius: 6px;
+      color: $white;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 18px;
+      filter: drop-shadow(2.51599px 0px 5.03198px $button-color);
+    }
+  }
+  .alert {
+    position: relative;
+    &.alert-danger::after {
+      content: "";
+      position: absolute;
+      background-color: $error-red;
+      height: 5px;
+      width: 100%;
+      border-radius: 0px 0px 5px 5px;
+      top: 0px;
+    }
+  }
+}

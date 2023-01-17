@@ -1,0 +1,11 @@
+<div class="box-icon">
+  <div class="avatar">
+    <span class="avatar__title">Arthur</span>
+    <button (click)="logToggler(isAuth$)">
+      {{ (isAuth$ | async) ? "LogOut" : "LogIn" }}
+    </button>
+    <span class="avatar__icon"
+      ><mat-icon class="icon">supervised_user_circle</mat-icon></span
+    >
+  </div>
+</div>
